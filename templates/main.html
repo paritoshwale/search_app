@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block main %}
+
+<form action="/" method="post">
+    {{ form.csrf_token() }}
+    {{ form.title }}
+    {{ form.submit }}
+</form>
+
+{% if title%}
+    {% for each in title %}
+    <p>{{ each }}</p> <br>
+    {% endfor %}
+    
+{% endif %}
+{% endblock %}
