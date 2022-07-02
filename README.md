@@ -10,5 +10,5 @@ Python application, takes a variable and outputs top 10 google search results
 1. Install Postman app
 2. Enter http://localhost:5000/look-for
 3. Choose BasicAuth and enter username: 'paritosh' password: 'wale' or username: 'john' password: 'doe'
-4. Enter {'data': '<searchword>'}
+4. Enter {'data': 'searchword'}
   
