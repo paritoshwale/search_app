@@ -1,16 +1,14 @@
-from django.shortcuts import render
 from app import app
 from flask import render_template, request, jsonify
 import requests
-import sys
 import forms
 from flask_httpauth import HTTPBasicAuth
 from werkzeug.security import generate_password_hash, check_password_hash
 
 auth = HTTPBasicAuth()
 users = {
-    "hello": generate_password_hash("world"),
-    "good": generate_password_hash("bye")
+    "paritosh": generate_password_hash("wale"),
+    "john": generate_password_hash("doe")
 }
 
 @auth.verify_password
@@ -19,7 +17,7 @@ def verify_password(username, password):
             check_password_hash(users.get(username), password):
         return username
 
-@app.route('/', methods=['POST'])
+@app.route('/', methods=['GET', 'POST'])
 @auth.login_required
 def main():
     form = forms.AddTaskForm()
@@ -60,13 +58,12 @@ def main():
             links.append(link)
 
             summary =['|'.join(x) for x in zip(count, titles, snippets, links)]
-            # overall =[x+'-'+y for x in titles for y in links]
+            
         return render_template('main.html', form=form, title=summary)
     return render_template('main.html', form=form)
 
 @app.route('/look-for', methods=["POST"])
 @auth.login_required
-
 def get_response():
     if request.method=='POST':
         API_KEY = "AIzaSyA9v2HELWPhnLsAs97dbWim-XrAfmwubAA"
