@@ -7,7 +7,7 @@ Python application, takes a variable and outputs top 10 google search results
 4. Enter username: 'paritosh' password: 'wale' or username: 'john' password: 'doe'
 5. Enter search word 
 # How to use API:
-1. Install Postman app
+1. Install Postman app or any other API testing platform
 2. Enter http://localhost:5000/look-for
 3. Choose BasicAuth and enter username: 'paritosh' password: 'wale' or username: 'john' password: 'doe'
 4. Enter {'data': 'searchword'}
